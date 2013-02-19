@@ -1,0 +1,261 @@
+html,
+body {
+	height: 100%;
+	background: #F5F4F0;
+}
+
+.navbar {
+	padding-left: 1em;
+	padding-right: 5em;
+}
+
+.navbar .brand img {
+	max-height: 30px;
+	max-width: 30px;
+	position: absolute;
+	top: 5px;
+	left: 5px;
+}
+
+.navbar .brand {
+	padding: 0.5em 1.6em 0.5em 3em;
+}
+
+#app-picker {
+	top: 0.5em !important;
+	position: fixed !important;
+}
+
+#bs-popup {
+	z-index: 1040 !important;
+	position: fixed !important;
+}
+
+.brand {
+	cursor: pointer;
+}
+
+#container {
+	position: relative;
+	margin: 3.2em 0 0;
+	min-height: 100%;
+}
+
+.mosaic-scroller {
+	top: 3em;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.mosaic {
+	display: block;
+	width: 100%;
+}
+
+progress {
+	margin: 15% 40%;
+	width: 20%;
+}
+
+.column {
+	display: block;
+	float: left;
+	padding: 0 0.5em;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+.column.filling {
+	display: block;
+	opacity: 0
+}
+
+.mosaic article {
+	overflow: auto;
+	word-wrap: break-word;
+	padding: 1em;
+	position: relative;
+	margin: 1em 0;
+	border-radius: 12px;
+}
+
+.mosaic article:hover {
+	border-color: transparent;
+}
+
+.tiddler-detail .tags .label a,
+.mosaic a {
+	color: inherit;
+}
+
+.mosaic .tags {
+	bottom: 0;
+	position: absolute;
+	left: 0;
+	right: 0;
+	min-height: 1.5em;
+	margin: 0;
+	padding: 1em;
+	background-color: rgba(0, 0, 0, 0.5);
+	border-bottom-left-radius: 12px;
+	border-bottom-right-radius: 12px;
+}
+
+.mosaic .tags.private {
+	background-color: rgba(255,255,255,0.5);
+}
+
+.mosaic .tags.private a {
+	color: black;
+	text-shadow: none;
+}
+
+.mosaic .label {
+	display: inline-block;
+	background-color: transparent;
+}
+
+.tiddler-detail {
+	display: none;
+	position: absolute;
+	background-color: #F5F4F0;
+	width: 100%;
+}
+
+.tiddler-detail.show {
+	display: block;
+}
+
+.tiddler-detail .back {
+	position: fixed;
+	left: 1em;
+	top: 4em;
+}
+
+.tiddler-detail .reply {
+	position: fixed;
+	right: 1em;
+	top: 4em;
+}
+
+.tiddler-detail .edit {
+	position: fixed;
+	top: 4em;
+	right: 8.5em;
+}
+
+.plain-btn {
+	background: transparent;
+	border: 0;
+	color: #333;
+	border: 1px solid #CCC;
+	padding: 0.5em 0;
+	width: 6.5em;
+}
+
+.tiddler-detail iframe {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	border: 0;
+}
+
+.tiddler-detail article {
+	margin: 0 20%;
+	padding: 1em 0 3em;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+.tiddler-detail .title {
+	border-bottom: 1px solid #ccc;
+	margin: 1em 0 2em;
+}
+
+.tiddler-detail .title h2 {
+	font-size: 4em;
+	line-height: 1.4em;
+}
+
+.tiddler-detail .title button {
+	float: right;
+	font-weight: normal;
+	cursor: pointer;
+	border-width: 0;
+}
+
+.tiddler-detail .text {
+	overflow-x: auto;
+}
+
+.tiddler-detail .text > div,
+.tiddler-detail .text > a {
+	font-size: 1.4em;
+	line-height: 1.4em;
+}
+
+.tiddler-detail .text p {
+	font-family: Georgia, serif;
+}
+
+.tiddler-detail .text img[align] {
+	padding: 1em;
+}
+
+.tiddler-detail address {
+	color: gray;
+	font-style: italic;
+}
+
+.tiddler-detail .tags .label {
+	display: inline-block;
+	margin: 0 0.5em;
+}
+
+.tiddler-detail hr {
+	border-bottom: 0;
+	border-color: #ccc;
+}
+
+blockquote {
+	border-color: #E0E0DE;
+}
+
+.primary {
+	min-height: 200px;
+	background-color: rgba(0,85,204,0.3);
+}
+
+.inverse {
+	min-height: 100px;
+	background-color: rgba(51,51,51,0.3);
+}
+
+.success {
+	min-height: 150px;
+	background-color: rgba(70,136,71,0.3);
+}
+
+.warning {
+	min-height: 125px;
+	background-color: rgba(248,148,6,0.3);
+}
+
+.important {
+	min-height: 175px;
+	background-color: rgba(185,74,72,0.3);
+	color: #FFFFFF;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.important:hover {
+	background-color: rgb(185,74,72);
+}
+
+.info {
+	min-height: 225px;
+	background-color: rgba(58,135,173,0.3);
+}
