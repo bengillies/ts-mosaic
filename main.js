@@ -276,23 +276,26 @@
 		}
 
 		function cleanUpTiddler(tiddler) {
-			tiddler.render = $(tiddler.render)
-				.find('table').addClass('table').end()
-				.find('> br').each(function(i, el) {
-					var sibling = el.previousSibling,
-						$para = $('<p/>');
-					while(sibling) {
-						if (sibling.nodeName !== 'BR' && isInline(sibling)) {
-							$para.prepend(sibling);
-						} else {
-							break;
+			if (tiddler.type == null) {
+				tiddler.render = $(tiddler.render)
+					.find('table').addClass('table').end()
+					.find('> br').each(function(i, el) {
+						var sibling = el.previousSibling,
+							$para = $('<p/>');
+						while(sibling) {
+							if (sibling.nodeName !== 'BR'
+									&& isInline(sibling)) {
+								$para.prepend(sibling);
+							} else {
+								break;
+							}
+							sibling = el.previousSibling;
 						}
-						sibling = el.previousSibling;
-					}
-					if ($para[0].childNodes.length) {
-						$para.insertBefore(el);
-					}
-				}).remove().end()[0].outerHTML;
+						if ($para[0].childNodes.length) {
+							$para.insertBefore(el);
+						}
+					}).remove().end()[0].outerHTML;
+			}
 		}
 
 		store.get(title, function(tiddler) {
