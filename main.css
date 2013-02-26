@@ -197,8 +197,18 @@ progress {
 	line-height: 1.4em;
 }
 
+.tiddler-detail .text,
 .tiddler-detail .text p {
 	font-family: Georgia, serif;
+}
+
+.tiddler-detail .text h1,
+.tiddler-detail .text h2,
+.tiddler-detail .text h3,
+.tiddler-detail .text h4,
+.tiddler-detail .text h5,
+.tiddler-detail .text h6 {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .tiddler-detail .text img[align] {
