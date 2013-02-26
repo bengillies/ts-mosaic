@@ -3345,10 +3345,6 @@ dd.meta-tag {
 	display: none;
 }
 
-.js #links {
-	display: block;
-}
-
 .tiddler .meta.section {
 	border-top: 1px solid #ccc;
 	padding-top: 1.2em;
@@ -3385,6 +3381,69 @@ dd.meta-tag {
 	cursor: pointer;
 }
 
+.tiddler .meta.section dd.time-and-creator {
+	display: block;
+	margin-bottom: 1.4em;
+	line-height: 1.4em;
+	color: gray;
+	font-style: italic;
+	font-size: 0.7em;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.tiddler .meta.section dd.time-and-creator a {
+	color: #0088cc;
+	text-decoration: none;
+}
+
+.plain-btn {
+	background: transparent;
+	border: 0;
+	color: #333;
+	border: 1px solid #CCC;
+	padding: 0.5em 0;
+	width: 6.5em;
+	text-align: center;
+}
+
+a.plain-btn {
+	color: #333;
+	text-decoration: none;
+}
+
+a.plain-btn:hover,
+a.plain-btn:visited,
+a.plain-btn:active {
+	color: #333;
+	text-decoration: none;
+}
+
+#editLink {
+	position: fixed;
+	top: 4em;
+	right: 8.5em;
+}
+
+.reply-btn.plain-btn {
+	position: fixed;
+	right: 1em;
+	top: 4em;
+}
+
+.back.plain-btn {
+	position: fixed;
+	left: 1em;
+	top: 4em;
+}
+
 #footer {
 	display: none;
+}
+
+.listing .search {
+	margin: 1em;
+}
+
+.listing .search img {
+	width: 48px;
 }
