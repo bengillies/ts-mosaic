@@ -6,8 +6,8 @@ $(function() {
 	$('<dd/>').html("last modified by " +
 		'<a href="http://' + author + '.tiddlyspace.com">' + author +
 		'</a> ' +
-		timeAgo + ' in ' + '<a href="http://tiddlyspace.com/bags/' + bag +
-			'/tiddlers">' + bag + '</a>')
+		timeAgo + ' in ' + '<a href="/bags/' + bag + '/tiddlers">'
+			+ bag + '</a>')
 		.addClass('time-and-creator')
 		.prependTo('dl.meta.section');
 
