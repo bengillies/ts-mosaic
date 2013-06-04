@@ -9,7 +9,14 @@
 	});
 
 	var store = tiddlyweb.Store(function(tiddlers) {
-		populateMosaic(store.Collection(tiddlers).find('!#excludeLists'));
+		var searchStr = decodeURIComponent(window.location.hash.slice(1));
+
+		if (searchStr) {
+			populateMosaic(search(searchStr), '-searchScore');
+		} else {
+			populateMosaic(store.Collection(tiddlers).find('!#excludeLists'));
+		}
+
 		populateDropdowns(tiddlers);
 	});
 
@@ -346,6 +353,7 @@
 		if (!(ev.ctrlKey || ev.metaKey || ev.shiftKey || ev.altKey)) {
 			if ($el.hasClass('tag')) {
 				$('.mosaic-title').text('#' + $el.text());
+				window.location.hash = encodeURIComponent('#' + $el.text());
 				populateMosaic(store().tag($el.text()));
 				ev.preventDefault();
 			} else if ($el.hasClass('title')) {
@@ -360,6 +368,7 @@
 
 	$('.brand').on('click', function() {
 		$('.mosaic-title').text('a TiddlySpace');
+		window.location.hash = '';
 		populateMosaic(store('!#excludeLists'));
 	});
 
@@ -371,14 +380,17 @@
 
 		if ($el.hasClass('all')) {
 			$('.mosaic-title').text('a TiddlySpace');
+			window.location.hash = '';
 			populateMosaic(store('!#excludeLists'));
 			$el.closest('.dropdown').removeClass('open');
 		} else if ($el.hasClass('tag')) {
 			$('.mosaic-title').text('#' + $el.text());
+			window.location.hash = encodeURIComponent('#' + $el.text());
 			populateMosaic(store().tag($el.text()));
 			$el.closest('.dropdown').removeClass('open');
 		} else if ($el.hasClass('space')) {
 			$('.mosaic-title').text('@' + $el.text());
+			window.location.hash = encodeURIComponent('@' + $el.text());
 			populateMosaic(store().space($el.text()));
 			$el.closest('.dropdown').removeClass('open');
 			ev.preventDefault();
@@ -419,6 +431,7 @@
 			populateMosaic(search($(this).find('.search-query').val()));
 		});
 	});
+
 	$('.search-query').keyup(fp.debounce((function() {
 		var oldText = '';
 
@@ -427,6 +440,7 @@
 
 			if (oldText !== searchText) {
 				oldText = searchText;
+				window.location.hash = encodeURIComponent(searchText);
 				populateMosaic(search(searchText), '-searchScore');
 			}
 		};
