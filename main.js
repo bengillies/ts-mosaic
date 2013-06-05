@@ -447,4 +447,18 @@
 			}
 		};
 	}()), 300));
+
+	window.addEventListener('hashchange', function(ev) {
+		var match = /\/#?([^#\/]*)$/.exec(ev.newURL),
+			searchStr = match && match[1] ? decodeURIComponent(match[1]) : null;
+
+		if (searchStr) {
+			$('.search-query').val(searchStr);
+			populateMosaic(search(searchStr), '-searchScore');
+		} else {
+			$('.search-query').val('');
+			$('.mosaic-title').text('a TiddlySpace');
+			populateMosaic(store('!#excludeLists'));
+		}
+	});
 }(jQuery));
