@@ -370,6 +370,7 @@
 	$('.brand').on('click', function() {
 		$('.mosaic-title').text('a TiddlySpace');
 		window.location.hash = '';
+		$('.search-query').val('');
 		populateMosaic(store('!#excludeLists'));
 	});
 
