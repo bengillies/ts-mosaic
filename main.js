@@ -13,6 +13,7 @@
 
 		if (searchStr) {
 			populateMosaic(search(searchStr), '-searchScore');
+			$('.search-query').val(searchStr);
 		} else {
 			populateMosaic(store.Collection(tiddlers).find('!#excludeLists'));
 		}
@@ -249,7 +250,7 @@
 			$header.off('click', hideTiddler);
 			$search.off('submit', hideTiddler);
 			$mosaic.show();
-			window.history.pushState({}, '', '/');
+			window.history.pushState({}, '', '/' + window.location.hash);
 		}
 
 		closeTiddler = hideTiddler;
@@ -341,7 +342,7 @@
 				window.history.pushState({
 					title: tiddler.title
 				}, tiddler.title, '/'
-					+ encodeURIComponent(tiddler.title));
+					+ encodeURIComponent(tiddler.title) + window.location.hash);
 			} else {
 				console && console.log('error getting tiddler', arguments);
 			}

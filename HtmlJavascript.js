@@ -51,7 +51,9 @@ $(function() {
 
 	$('.reply-btn').addClass('plain-btn').html('reply');
 
-	$(document.body).append('<a class="plain-btn back" href="/">back</a>');
+	$('<a/>').addClass('plain-btn').addClass('back').text('back')
+		.attr('href', '/' + window.location.hash)
+		.appendTo(document.body);
 
 	console.log($('.reply-btn'));
 });
