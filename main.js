@@ -325,7 +325,9 @@
 				$header.on('click', hideTiddler);
 				$search.on('submit', hideTiddler);
 				$el.children().on('click', function(ev) {
-					if (!$(ev.target).hasClass('tag')) {
+					var $el = $(ev.target);
+					if (!$el.hasClass('tag') &&
+							!isInternalLink($el.attr('href'))) {
 						ev.stopPropagation();
 					}
 				});
@@ -349,6 +351,15 @@
 		}, true);
 	}
 
+	function isInternalLink(href) {
+		var regexp = /^(ftp|git|mailto|file|data|https?):/,
+			spaceURL = window.location.protocol + '//' + window.location.host;
+
+		return !regexp.test(href) ||
+			href.indexOf(spaceURL) == 0 ||
+			href.indexOf(window.location.host) == 0;
+	}
+
 	function hijackLinks(ev) {
 		var $el = $(this);
 		if (!(ev.ctrlKey || ev.metaKey || ev.shiftKey || ev.altKey)) {
@@ -357,7 +368,8 @@
 				window.location.hash = encodeURIComponent('#' + $el.text());
 				populateMosaic(store().tag($el.text()));
 				ev.preventDefault();
-			} else if ($el.hasClass('title')) {
+			} else if ($el.hasClass('title') ||
+					isInternalLink($el.attr('href'))) {
 				displayTiddler($el.text());
 				ev.preventDefault();
 			}
@@ -449,7 +461,7 @@
 	}()), 300));
 
 	window.addEventListener('hashchange', function(ev) {
-		var match = /\/#?([^#\/]*)$/.exec(ev.newURL),
+		var match = /\/?#([^#\/]*)$/.exec(ev.newURL),
 			searchStr = match && match[1] ? decodeURIComponent(match[1]) : null;
 
 		if (searchStr) {
